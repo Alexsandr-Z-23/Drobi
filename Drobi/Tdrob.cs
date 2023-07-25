@@ -9,30 +9,36 @@ namespace Drobi
 {
     internal class Tdrob
     {
-        public int num;
-        public int denum;
+        public int? num ;
+        public int? denum ;
 
         public Tdrob() : this(0)
         {
-            num = 0;
+             num=0;
             denum = 1;
            
         }
         public Tdrob(int num) : this(num, 1) { }
-        public Tdrob(int num, int denum)
+        public Tdrob(int? num, int? denum)
         {
-            this.num = num;
-            this.denum = denum;
+            if (num.HasValue && denum.HasValue)
+
+            {
+                this.num = (int)num;
+                if (denum != null) Console.WriteLine("null");
+                else this.denum = (int)denum;
+            }
         }
 
-        public void Deconstruct(out int Dnum, out int Ddenum)
+        public void Deconstruct(out int? Dnum, out int? Ddenum)
         {
             Dnum = num;
             Ddenum = denum;
         }
-        public void Print1() => Console.Write($"\nДробь [1]  => : {num} /{denum} ");
+       
+            public void Print1() => Console.Write($"\nДробь [1]  => : {num} /{denum} ");
         public void Print2() => Console.Write($"\nДробь [2]  => : {num} /{denum} ");
-        public void Print() => Console.Write($"\nДробь итог  => :{num}/{denum} => {(double) num/denum} \n");
+        public void Print() => Console.Write($"\nДробь итог  => :{num}/{denum} => {(double?) num/denum} \n");
 
         public static Tdrob operator +(Tdrob a, Tdrob b)
         {

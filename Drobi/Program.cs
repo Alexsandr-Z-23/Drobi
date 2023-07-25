@@ -1,11 +1,15 @@
 ﻿using Drobi;
 
+//string num,denum,num2,denum2;
 
+int? Num1, Num2,Den1,  Den2 ;
 
-int Den1, Num1, Den2, Num2;
 Console.WriteLine("Введите числитель первой дроби");
-Num1= Convert.ToInt32( Console.ReadLine());
+
+Num1= Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Введите знаменатель первой дроби");
+
+
 Den1 = Convert.ToInt32(Console.ReadLine());
 Tdrob d1 = new Tdrob { num = Num1, denum=Den1 };
 Console.WriteLine($"**************************************");
@@ -20,13 +24,13 @@ Console.WriteLine($"\n**************************************");
 d1.Print1();
 d2.Print2();
 Console.WriteLine($"\n**************************************");
-Tdrob d3 =new Tdrob { num=5 };
+Tdrob d3 = new Tdrob { num = 5 };
 d3.Print1();
 Console.WriteLine($"\n**************************************");
-Tdrob C1 = new Tdrob {  };
+Tdrob C1 = new Tdrob { };
 C1 = d1 + d2;
 
 C1.Print();
 Console.WriteLine($"**************************************");
-(int num, int dnum) = C1;
+(int? num, int? dnum) = C1;
 Console.WriteLine($"Числитель => {num};\nЗнаменатель => {dnum};");
